@@ -102,7 +102,7 @@ export default function Producto() {
         <p className="producto__precio">{precio(p.precio)}</p>
         <p className="producto__desc">{p.descripcion}</p>
 
-        <h2 className="etiqueta">Color: <strong>{color.nombre}</strong> <span className="hex">{color.hex}</span></h2>
+        <h2 className="etiqueta">Color: <strong>{color.nombre}</strong></h2>
         <div className="colores" role="radiogroup" aria-label="Color">
           {p.colores.map((c) => (
             <button key={c.id} role="radio" aria-checked={c.id === color.id} title={c.nombre} aria-label={c.nombre}
