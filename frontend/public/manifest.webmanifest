@@ -1,0 +1,10 @@
+{
+  "name": "Ten Points",
+  "short_name": "Ten Points",
+  "description": "Ropa para chicas teen. By Lucas y Coral.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF4FA",
+  "theme_color": "#FFF4FA",
+  "icons": [{ "src": "/icono.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
