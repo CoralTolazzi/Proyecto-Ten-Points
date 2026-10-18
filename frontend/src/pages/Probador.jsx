@@ -143,7 +143,19 @@ export default function Probador() {
               )}
             </button>
             <div className="probar__caja probar__caja--resultado">
-              {resultado ? <img src={resultado} alt={`Vos con ${prenda?.nombre}`} /> : prenda ? (
+              {probando ? (
+                <div className="probar__cargando">
+                  <div className="cargando">
+                    <span className="cargando__punto" />
+                    <span className="cargando__punto" />
+                    <span className="cargando__punto" />
+                  </div>
+                  <p>Probándote la prenda con IA...</p>
+                  <span>Demora entre 15 y 20 segundos</span>
+                </div>
+              ) : resultado ? (
+                <img src={resultado} alt={`Vos con ${prenda?.nombre}`} />
+              ) : prenda ? (
                 <>
                   <FotoPrenda src={prenda.color.imagen_url} alt={prenda.nombre} hex={prenda.color.hex} />
                   <span className="probar__tag">{prenda.color.nombre}</span>

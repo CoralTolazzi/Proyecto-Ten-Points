@@ -68,33 +68,42 @@ Del número solo se guardan la marca y los últimos 4 dígitos.
 | 4000 0000 0000 0002 | Rechazada: fondos insuficientes |
 | 5105 1051 0510 5100 | Rechazada: el banco no autorizó |
 
-## Conectar el modelo de IA
+## Modelo de IA (Probador Virtual)
 
-Abrí `app/ia/probador.py`:
+El probador virtual está implementado en `app/ia/probador.py` con **IDM-VTON** a través de **Replicate** (`cuuupid/idm-vton`).
 
-1. Escribí una clase con un método `probar(foto_persona, imagen_prenda_url, categoria)` que devuelva la imagen generada en bytes.
-2. Devolvela en `obtener_modelo()`.
+### Cómo funciona:
+1. Recibe la foto en memoria (`bytes`) y la URL de la prenda de 47 Street.
+2. Mapea la categoría argentina a las categorías de IDM-VTON (`arriba` → `upper_body`, `abajo` → `lower_body`, `entero` → `dresses`).
+3. Invoca la predicción en Replicate sin almacenar imágenes en el servidor.
+4. Descarga la imagen generada y la retorna como PNG directamente al frontend.
 
+### Activar el modelo:
+Crear o editar el archivo `.env` en la carpeta `backend/`:
+```env
+REPLICATE_API_TOKEN=r8_tuTokenDeReplicate
+```
+Cuando la variable está presente, `/probador/estado` responde `{ disponible: true, mensaje: "Modelo: IDM-VTON (Replicate)" }` y la app habilita el botón "Probar con IA". Si la variable no está configurada, el backend usa automáticamente `SinModelo` como modo seguro.
+
+### Cambiar o extender el modelo:
+Para conectar otro proveedor (Fal.ai, FASHN o un modelo local en PyTorch), creá una clase que cumpla el protocolo `ModeloProbador`:
 ```python
 class MiModelo:
     nombre = "mi modelo de try-on"
 
     def probar(self, foto_persona: bytes, imagen_prenda_url: str, categoria: str) -> bytes:
-        parte = PARTE_DEL_CUERPO[categoria]  # "arriba", "abajo" o "entero"
-        # ... llamar al modelo (PyTorch, una API externa, etc.)
+        # Lógica de inferencia
         return imagen_png_en_bytes
-
-
-def obtener_modelo():
-    return MiModelo()
 ```
+Y devolvela en la función `obtener_modelo()`.
 
-Listo: `/probador/estado` pasa a `disponible: true` y el botón "Probar con IA" de la app se habilita solo. Hay un test (`test_probador_con_modelo_de_prueba`) que muestra cómo queda funcionando con un modelo falso.
+## Configuración y Variables de Entorno
 
-## Configuración (opcional)
+Se configuran en el archivo `backend/.env` o en las variables del sistema:
 
 | Variable | Para qué | Por defecto |
 |---|---|---|
+| `REPLICATE_API_TOKEN` | Token de autenticación de Replicate para IDM-VTON | *(vacío, activa SinModelo)* |
 | `TEN_POINTS_DB` | Ruta del archivo SQLite | `backend/ten_points.db` |
 | `TEN_POINTS_DATOS` | Carpeta de los CSV | `backend/data` |
 | `TEN_POINTS_ORIGENES` | Dominios del frontend permitidos (CORS), separados por coma | `http://localhost:5173` |

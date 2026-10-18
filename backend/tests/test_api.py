@@ -260,3 +260,24 @@ def test_probador_pide_aceptar_terminos(api):
     for data in ({"item_perchero_id": per[0]["id"]}, {"item_perchero_id": per[0]["id"], "acepta_terminos": "false"}):
         r = api.post("/api/probador", data=data, files={"foto": ("yo.jpg", b"x", "image/jpeg")}, headers=S1)
         assert r.status_code == 403 and "términos" in r.json()["detail"]
+
+
+def test_probador_replicate_clase(monkeypatch):
+    from app.ia.probador import ReplicateIdmVton, obtener_modelo
+
+    # Simular ejecución exitosa de Replicate
+    class ReplicateClienteMock:
+        def run(self, model, input):
+            assert "human_img" in input
+            assert input["category"] == "upper_body"
+            return b"\x89PNG resultado_vton"
+
+    modelo = ReplicateIdmVton(token="token_de_prueba")
+    modelo.client = ReplicateClienteMock()
+    resultado = modelo.probar(b"foto_bytes", "https://ejemplo.com/prenda.jpg", "remeras")
+    assert resultado == b"\x89PNG resultado_vton"
+
+    # Verificar que obtener_modelo reconozca el token
+    monkeypatch.setenv("REPLICATE_API_TOKEN", "token_prueba_123")
+    m = obtener_modelo()
+    assert m.nombre == "IDM-VTON (Replicate)"
