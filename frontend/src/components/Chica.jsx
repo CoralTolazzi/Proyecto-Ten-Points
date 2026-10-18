@@ -6,10 +6,10 @@ import chica4 from "../assets/chicas/chica4_celeste.webp";
 import chica5 from "../assets/chicas/chica5_selfie.webp";
 
 export const CHICAS = {
-  inicio: chica1,    // top verde y jean
-  buscar: chica2,    // top lila y pollera tableada
+  inicio: chica4,    // gorro lila y cargo lila (la primera que se ve al entrar)
+  buscar: chica1,    // top verde y jean
   carrito: chica3,   // top rosa y cargo negro
-  compra: chica4,    // top celeste y jean celeste
+  compra: chica2,    // top lila y pollera tableada
   probador: chica5,  // selfie en el espejo: tutorial de la foto
 };
 
@@ -19,9 +19,9 @@ export default function Chica({ cual, className = "", alt = "" }) {
 }
 
 // Tarjeta con texto a la izquierda y la chica asomándose a la derecha.
-export function TarjetaChica({ cual, color = "rosa", children }) {
+export function TarjetaChica({ cual, color = "rosa", className = "", children }) {
   return (
-    <div className={`tarjeta-chica tarjeta-chica--${color}`}>
+    <div className={`tarjeta-chica tarjeta-chica--${color} ${className}`}>
       <div className="tarjeta-chica__texto">{children}</div>
       <Chica cual={cual} className="tarjeta-chica__img" />
     </div>

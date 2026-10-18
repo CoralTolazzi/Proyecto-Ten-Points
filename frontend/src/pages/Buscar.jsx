@@ -119,7 +119,7 @@ export default function Buscar() {
 
   return (
     <main className="pantalla">
-      <TarjetaChica cual="buscar" color="lila">
+      <TarjetaChica cual="buscar" color="lila" className="tarjeta-chica--alta">
         <h1 className="titulo-pantalla">Buscar</h1>
         <p>Remeras, vestidos, jeans… encontrá tu próximo look.</p>
       </TarjetaChica>

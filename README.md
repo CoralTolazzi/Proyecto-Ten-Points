@@ -4,7 +4,7 @@ Tienda de ropa para chicas adolescentes, con probador virtual con IA. **By Lucas
 
 ```
 Proyecto-Ten-Points/
-├── backend/    API en Python (FastAPI) + dataset de 150 prendas
+├── backend/    API en Python (FastAPI) + dataset de 144 prendas
 └── frontend/   App para celular en React (Vite), diseño del Figma "Ten Points Frontend"
 ```
 
@@ -61,7 +61,7 @@ El probador virtual está conectado a **IDM-VTON** mediante la API externa de **
 
 ## Datos
 
-Las 150 prendas (25 por categoría) salen del catálogo público de 47 Street. Más detalles en `backend/data/LEEME.md`.
+Las 144 prendas (entre 23 y 25 por categoría) salen del catálogo público de 47 Street. Más detalles en `backend/data/LEEME.md`.
 
 ## Aviso
 

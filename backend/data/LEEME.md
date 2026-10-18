@@ -1,13 +1,13 @@
 # Dataset Ten Points — ropa adolescente
 
-150 prendas para chicas adolescentes, 25 por categoría: **remeras, vestidos, pantalones, polleras, camperas y buzos**.
+144 prendas para chicas adolescentes en 6 categorías: **remeras (24), vestidos (25), pantalones (23), polleras (23), camperas (24) y buzos (25)**.
 Cada prenda tiene precio, descripción corta, todos sus colores (cada uno con su código #hex y su foto real) y sus talles con medidas.
 
 | Archivo | Filas | Qué tiene |
 |---|---|---|
-| `productos.csv` | 150 | Una fila por prenda |
-| `colores.csv` | 304 | Una fila por cada color de cada prenda, con su foto |
-| `talles.csv` | 583 | Una fila por cada talle de cada prenda, con medidas en cm |
+| `productos.csv` | 144 | Una fila por prenda |
+| `colores.csv` | 292 | Una fila por cada color de cada prenda, con su foto |
+| `talles.csv` | 558 | Una fila por cada talle de cada prenda, con medidas en cm |
 
 ## Cómo se relacionan
 
@@ -21,7 +21,7 @@ Ejemplo: la prenda `producto_id = 1` tiene sus colores en las filas de `colores.
 ## Columnas
 
 **productos.csv**
-- `producto_id`: id propio del dataset (1 a 150).
+- `producto_id`: id propio del dataset (entre 1 y 150; faltan algunos números porque se sacaron prendas).
 - `nombre`, `categoria` (remeras · vestidos · pantalones · polleras · camperas · buzos), `descripcion`.
 - `precio`: en pesos argentinos, sin decimales; `moneda` = ARS.
 - `sistema_talles`: `letras_XS_XL` o `numerico_34_44` (este último solo en pantalones).

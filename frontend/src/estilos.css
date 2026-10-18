@@ -515,3 +515,10 @@ form { display: flex; flex-direction: column; gap: 16px; }
 .tutorial__titulo { font-family: var(--titulo); font-weight: 400; font-size: 22px; line-height: 1.05; }
 .tutorial__tips { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 13px; line-height: 1.35; }
 .tutorial__tips li::marker { color: var(--pink); font-weight: 700; }
+
+/* Buscar: tarjeta más alta para que la chica se vea hasta la cintura (no entera) */
+.tarjeta-chica--alta { min-height: 215px; padding-right: 38%; }
+.tarjeta-chica--alta .tarjeta-chica__img { width: 34%; right: 10px; top: 12px; }
+
+/* Todas las chicas con el mismo borde/sombra oscura que la del banner de Inicio */
+.chica { filter: drop-shadow(3px 3px 0 var(--ink)); }

@@ -26,7 +26,7 @@ backend/
 └── tests/test_api.py
 ```
 
-**¿Por qué el catálogo en memoria y no en la base?** Las 150 prendas no cambian mientras la app corre, así que leer los CSV una vez es más simple y más rápido. Lo que sí cambia (carrito, perchero, pedidos) va a SQLite.
+**¿Por qué el catálogo en memoria y no en la base?** Las 144 prendas no cambian mientras la app corre, así que leer los CSV una vez es más simple y más rápido. Lo que sí cambia (carrito, perchero, pedidos) va a SQLite.
 
 **¿Cómo sabe de quién es cada carrito?** Todavía no hay login. El frontend genera un id al azar la primera vez, lo guarda en el celular y lo manda en cada pedido en el header `X-Sesion`. Cuando agreguen usuarios, se reemplaza ese id por el de la usuaria.
 

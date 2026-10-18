@@ -36,6 +36,18 @@ def validar_variante(producto_id: int, color_id: int, talle_id: int | None = Non
             raise HTTPException(422, "Ese talle no es de esta prenda")
 
 
+def variante_existe(producto_id: int, color_id: int, talle_id: int | None = None) -> bool:
+    """False si la prenda, el color o el talle ya no están en el catálogo (por ejemplo, se sacaron del CSV)."""
+    cat = catalogo()
+    c = cat.colores.get(color_id)
+    if producto_id not in cat.productos or not c or c.producto_id != producto_id:
+        return False
+    if talle_id is not None:
+        t = cat.talles.get(talle_id)
+        return bool(t and t.producto_id == producto_id)
+    return True
+
+
 def item_out(fila: sqlite3.Row) -> ItemCarritoOut:
     cat = catalogo()
     p = cat.productos[fila["producto_id"]]
@@ -49,7 +61,12 @@ def item_out(fila: sqlite3.Row) -> ItemCarritoOut:
 
 def armar_carrito(con: sqlite3.Connection, sesion: str, envio: str = "domicilio") -> CarritoOut:
     filas = con.execute("SELECT * FROM carrito_items WHERE sesion = ? ORDER BY id", (sesion,)).fetchall()
-    items = [item_out(f) for f in filas]
+    # Si una prenda se sacó de la tienda, se borra del carrito en vez de romperlo
+    viejas = [f["id"] for f in filas if not variante_existe(f["producto_id"], f["color_id"], f["talle_id"])]
+    if viejas:
+        con.executemany("DELETE FROM carrito_items WHERE id = ?", [(i,) for i in viejas])
+        con.commit()
+    items = [item_out(f) for f in filas if f["id"] not in viejas]
     subtotal = sum(i.subtotal for i in items)
     falta = falta_para_envio_gratis(subtotal)
     gratis = envio == "retiro" or falta == 0 or not items

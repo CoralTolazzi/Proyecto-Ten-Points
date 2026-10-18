@@ -31,9 +31,6 @@ color_id,producto_id,color,color_tienda,hex,imagen_url
 30,9,Rosa viejo,Fucsia,#C98E9C,https://street47.vteximg.com.br/arquivos/ids/358219-1000-0/Remera%20claire%20shoulder%20rosa%20viejo%20para%20mujer%2047%20Street%20-23-.jpg?v=639270613443670000
 31,9,Visón,Marrón,#A38B76,https://street47.vteximg.com.br/arquivos/ids/358203-1000-0/Remera%20claire%20shoulder%20vison%20para%20mujer%2047%20Street%20-11-.jpg?v=639270613442430000
 32,9,Negro,Negro,#1A1A1A,https://street47.vteximg.com.br/arquivos/ids/358187-1000-0/Remera%20claire%20shoulder%20negro%20para%20mujer%2047%20Street%20-2-.jpg?v=639270613441130000
-33,10,Blanco,Blanco,#FFFFFF,https://street47.vteximg.com.br/arquivos/ids/360264-1000-0/p_-Remera-Cuddles-para-mujer-47-Street--2-.jpg?v=639271426407330000
-34,10,Gris,Gris Medio,#8E8E8E,https://street47.vteximg.com.br/arquivos/ids/360267-1000-0/Remera-Cuddles-para-mujer-47-Street--1-.jpg?v=639271426408430000
-35,10,Topo,Topo,#8B7D72,https://street47.vteximg.com.br/arquivos/ids/360261-1000-0/Remera-Cuddles-para-mujer-47-Street--3-.jpg?v=639271426408130000
 36,11,Blanco,Blanco,#FFFFFF,https://street47.vteximg.com.br/arquivos/ids/358443-1000-0/p_%20Remera%20emma%20hotfix%20blanco%20para%20mujer%2047%20Street%20-6-.jpg?v=639270626237600000
 37,11,Bordó,Bordó,#6D1A2B,https://street47.vteximg.com.br/arquivos/ids/358475-1000-0/Remera%20emma%20hotfix%20bordo%20para%20mujer%2047%20Street%20-5-.jpg?v=639270626240730000
 38,11,Negro,Negro,#1A1A1A,https://street47.vteximg.com.br/arquivos/ids/358459-1000-0/Remera%20emma%20hotfix%20negro%20para%20mujer%2047%20Street%20-13-.jpg?v=639270626239330000
@@ -50,7 +47,6 @@ color_id,producto_id,color,color_tienda,hex,imagen_url
 49,15,Verde,Verde,#55663F,https://street47.vteximg.com.br/arquivos/ids/350632-1000-0/Remera%20bond%20verde%20para%20mujer%2047%20Street%20-6-%20copia.jpg?v=639246440142800000
 50,16,Azul claro,Azul Claro,#8DB3D9,https://street47.vteximg.com.br/arquivos/ids/350768-1000-0/Remera-corner-azul-para-mujer-47-Street--8-.jpg?v=639246529775830000
 51,16,Bordó,Bordó,#6D1A2B,https://street47.vteximg.com.br/arquivos/ids/351633-1000-0/p_-Remera-corner-bordo-para-mujer-47-Street.jpg?v=639259391573470000
-52,17,Azul claro,Azul Claro,#8DB3D9,https://street47.vteximg.com.br/arquivos/ids/351691-1000-0/p_-Remera-club-azul-para-mujer-47-Street.jpg?v=639259389758770000
 53,17,Marrón,Marrón,#6B4A3A,https://street47.vteximg.com.br/arquivos/ids/350729-1000-0/Remera-club-marron-para-mujer-47-Street--5-.jpg?v=639246554697600000
 54,18,Azul marino,Azul Oscuro,#1F2A44,https://street47.vteximg.com.br/arquivos/ids/350592-1000-0/p_%20Remera%20belly%20marino%20para%20mujer%2047%20Street%20-8-.jpg?v=639246438316900000
 55,18,Negro,Negro,#1A1A1A,https://street47.vteximg.com.br/arquivos/ids/350604-1000-0/Remera%20belly%20negro%20para%20mujer%2047%20Street%20-3-.jpg?v=639246438318170000
@@ -123,9 +119,6 @@ color_id,producto_id,color,color_tienda,hex,imagen_url
 122,51,Negro,Negro,#1A1A1A,https://street47.vteximg.com.br/arquivos/ids/357238-1000-0/Pantalon-motion-negro-para-mujer-47-Street--12-.jpg?v=639270662667030000
 123,52,Gris,Gris Medio,#8E8E8E,https://street47.vteximg.com.br/arquivos/ids/357290-1000-0/Pantalon%20row%20animal%20gris%20para%20mujer%2047%20Street%20-11-.jpg?v=639269886769570000
 124,52,Visón,Marrón,#A38B76,https://street47.vteximg.com.br/arquivos/ids/357258-1000-0/p_%20Pantalon%20row%20animal%20vison%20para%20mujer%2047%20Street%20-2-%20copia.jpg?v=639269886766900000
-125,53,Azul claro,Azul Claro,#8DB3D9,https://street47.vteximg.com.br/arquivos/ids/357338-1000-0/Pantalon%20soil%20azul%20para%20mujer%2047%20Street%20-2-.jpg?v=639269890690170000
-126,53,Crudo,Crudo,#EFE8DA,https://street47.vteximg.com.br/arquivos/ids/357362-1000-0/Pantalon%20soil%20crudo%20para%20mujer%2047%20Street%20-6-.jpg?v=639269890691600000
-127,53,Gris,Gris Medio,#8E8E8E,https://street47.vteximg.com.br/arquivos/ids/357314-1000-0/p_%20Pantalon%20soil%20gris%20para%20mujer%2047%20Street%20-8-%20copia.jpg?v=639269890688600000
 128,54,Negro,Negro,#1A1A1A,https://street47.vteximg.com.br/arquivos/ids/349859-1000-0/Pantalon-rude-negro-para-mujer-47-Street--7-.jpg?v=639247251185330000
 129,54,Verde,Verde,#55663F,https://street47.vteximg.com.br/arquivos/ids/352075-1000-0/Pantalon%20rude%20verde%20para%20mujer%2047%20Street%20-15-.jpg?v=639247316444400000
 130,55,Azul claro,Azul Claro,#8DB3D9,https://street47.vteximg.com.br/arquivos/ids/352308-1000-0/p_-Pantalon-dallas-azul-para-mujer-47-Street.jpg?v=639259369121730000
@@ -150,7 +143,6 @@ color_id,producto_id,color,color_tienda,hex,imagen_url
 149,65,Celeste,Celeste,#A9CCE3,https://street47.vteximg.com.br/arquivos/ids/356492-1000-0/p_%20Jean%20low%20rise%20light%20para%20mujer%2047%20Street%20-5-%20copia.jpg?v=639269824765400000
 150,66,Blanco,Blanco,#FFFFFF,https://street47.vteximg.com.br/arquivos/ids/356524-1000-0/p_%20Jean%20wide%20low%20white%20para%20mujer%2047%20Street%20-8-%20copia.jpg?v=639269825293200000
 151,67,Azul claro,Azul Claro,#8DB3D9,https://street47.vteximg.com.br/arquivos/ids/356566-1000-0/p_%20Jean%20wide%20soft%20blue%20para%20mujer%2047%20Street%20-6-.jpg?v=639269825779830000
-152,68,Azul claro,Azul Claro,#8DB3D9,https://street47.vteximg.com.br/arquivos/ids/354575-1000-0/JEAN-BAGGY-FUN.jpg?v=639258627957230000
 153,69,Azul claro,Azul Claro,#8DB3D9,https://street47.vteximg.com.br/arquivos/ids/354642-1000-0/JEAN-WIDE-LEG-LOW-DUST.jpg?v=639259323818870000
 154,70,Gris,Gris Medio,#8E8E8E,https://street47.vteximg.com.br/arquivos/ids/349204-1000-0/p_-Jean-wide-teddy-bow-para-mujer-47-Street--2-.jpg?v=639258583055830000
 155,71,Negro,Negro,#1A1A1A,https://street47.vteximg.com.br/arquivos/ids/349050-1000-0/p_%20Jean%20wide%20leg%20shinedark%20negro%20para%20mujer%2047%20Street%20-7-%20copia.jpg?v=639245794881670000
@@ -158,14 +150,12 @@ color_id,producto_id,color,color_tienda,hex,imagen_url
 157,73,Azul claro,Azul Claro,#8DB3D9,https://street47.vteximg.com.br/arquivos/ids/348871-1000-0/p_%20Jean%20wide%20leg%20crop%20para%20mujer%2047%20Street%20-18-.jpg?v=639245791800970000
 158,74,Azul claro,Azul Claro,#8DB3D9,https://street47.vteximg.com.br/arquivos/ids/348994-1000-0/p_%20Jean%20wide%20leg%20shine%20blue%20para%20mujer%2047%20Street%20-20-.jpg?v=639245794097870000
 159,75,Negro,Negro,#1A1A1A,https://street47.vteximg.com.br/arquivos/ids/349162-1000-0/p_%20Jean%20wide%20soft%20black%20negro%20para%20mujer%2047%20Street%20-12-%20copia.jpg?v=639245797797400000
-160,76,Azul claro,Azul Claro,#8DB3D9,https://street47.vteximg.com.br/arquivos/ids/356093-1000-0/p_%20Falda%20pleated%20blue%20para%20mujer%2047%20Street%20-4-.jpg?v=639269816058370000
 161,77,Azul claro,Azul Claro,#8DB3D9,https://street47.vteximg.com.br/arquivos/ids/355887-1000-0/p_%20Falda%20brand%20blue%20strass%20para%20mujer%2047%20Street%20-11-.jpg?v=639269812441130000
 162,78,Blanco,Blanco,#FFFFFF,https://street47.vteximg.com.br/arquivos/ids/356158-1000-0/Falda%20short%20emily%20blanco%20para%20mujer%2047%20Street%20-11-.jpg?v=639269817455600000
 163,78,Marrón,Marrón,#6B4A3A,https://street47.vteximg.com.br/arquivos/ids/356178-1000-0/Falda%20short%20emily%20marron%20para%20mujer%2047%20Street%20-16-.jpg?v=639269817456830000
 164,78,Negro,Negro,#1A1A1A,https://street47.vteximg.com.br/arquivos/ids/356142-1000-0/p_%20Falda%20short%20emily%20negro%20para%20mujer%2047%20Street%20-7-%20copia.jpg?v=639269817454170000
 165,79,Blanco,Blanco,#FFFFFF,https://street47.vteximg.com.br/arquivos/ids/356013-1000-0/p_%20Falda%20eyelet%20blanco%20para%20mujer%20%2047%20Street%20-1-.jpg?v=639269814261500000
 166,79,Negro,Negro,#1A1A1A,https://street47.vteximg.com.br/arquivos/ids/356029-1000-0/Falda%20eyelet%20negro%20para%20mujer%2047%20Street%20-11-.jpg?v=639269814263070000
-167,80,Azul claro,Azul Claro,#8DB3D9,https://street47.vteximg.com.br/arquivos/ids/355971-1000-0/p_%20Falda%20essential%20para%20mujer%2047%20Street%20-19-.jpg?v=639269813546170000
 168,81,Negro,Negro,#1A1A1A,https://street47.vteximg.com.br/arquivos/ids/356045-1000-0/p_%20Falda%20max%20negro%20para%20mujer%2047%20Street%20-3-.jpg?v=639269814669600000
 169,82,Azul claro,Azul Claro,#8DB3D9,https://street47.vteximg.com.br/arquivos/ids/356234-1000-0/Falda%20soil%20azul%20para%20mujer%2047%20Street%20-7-.jpg?v=639269819163170000
 170,82,Crudo,Crudo,#EFE8DA,https://street47.vteximg.com.br/arquivos/ids/356210-1000-0/p_%20Falda%20soil%20crudo%20para%20mujer%2047%20Street%20-2-.jpg?v=639269819157000000
@@ -215,7 +205,6 @@ color_id,producto_id,color,color_tienda,hex,imagen_url
 214,104,Negro,Negro,#1A1A1A,https://street47.vteximg.com.br/arquivos/ids/345824-1000-0/Campera-diamonds-para-mujer-47-Street--6-.jpg?v=639231840300970000
 215,105,Negro,Negro,#1A1A1A,https://street47.vteximg.com.br/arquivos/ids/303841-1000-0/p_-Campera-classic-black-para-mujer-47-Street--1-.jpg?v=639044416953000000
 216,106,Negro,Negro,#1A1A1A,https://street47.vteximg.com.br/arquivos/ids/357760-1000-0/p_%20Campera%20sprint%20para%20mujer%2047%20Street%20-19-%20copia.jpg?v=639270596271770000
-217,107,Verde,Verde,#55663F,https://street47.vteximg.com.br/arquivos/ids/354519-1000-0/CAMPERA-LEAF.jpg?v=639258600234970000
 218,108,Azul claro,Azul Claro,#8DB3D9,https://street47.vteximg.com.br/arquivos/ids/351709-1000-0/p_-Campera-dallas-azul-para-mujer-47-Street.jpg?v=639259369255330000
 219,108,Bordó,Bordó,#6D1A2B,https://street47.vteximg.com.br/arquivos/ids/347132-1000-0/Campera-dallas-bordo-para-mujer-47-Street--10-.jpg?v=639246499245100000
 220,108,Crudo,Crudo,#EFE8DA,https://street47.vteximg.com.br/arquivos/ids/347152-1000-0/Campera-dallas-crudo-para-mujer-47-Street--9-.jpg?v=639246499246030000
@@ -237,7 +226,6 @@ color_id,producto_id,color,color_tienda,hex,imagen_url
 236,120,Negro,Negro,#1A1A1A,https://street47.vteximg.com.br/arquivos/ids/311981-1000-0/p_-Campera-klim-negro-para-mujer-47-Street--9-.jpg?v=639071031143730000
 237,121,Negro,Negro,#1A1A1A,https://street47.vteximg.com.br/arquivos/ids/312170-1000-0/p_-Campera-reflect-para-mujer-47-Street--6-.jpg?v=639071029417000000
 238,122,Negro,Negro,#1A1A1A,https://street47.vteximg.com.br/arquivos/ids/315492-1000-0/p_-Campera-motor-para-mujer-Mich-47-Street--6--copia.jpg?v=639095170670500000
-239,123,Crudo,Crudo,#EFE8DA,https://street47.vteximg.com.br/arquivos/ids/360148-1000-0/p_%20Campera%20myst%20crudo%20para%20mujer%2047%20Street%20-23-.jpg?v=639270662043000000
 240,123,Negro,Negro,#1A1A1A,https://street47.vteximg.com.br/arquivos/ids/358733-1000-0/Campera-myst-negro-para-mujer-47-Street--7-.jpg?v=639270662044900000
 241,124,Negro,Negro,#1A1A1A,https://street47.vteximg.com.br/arquivos/ids/350487-1000-0/p_-Campera-victorian-negro-para-mujer-47-Street--12-.jpg?v=639259379672100000
 242,125,Marrón,Marrón,#6B4A3A,https://street47.vteximg.com.br/arquivos/ids/354749-1000-0/s_-Campera-rake-para-mujer-47-Street--2-.jpg?v=639259392523730000

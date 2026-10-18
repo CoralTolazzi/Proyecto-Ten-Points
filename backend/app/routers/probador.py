@@ -8,6 +8,7 @@ from ..db import conexion
 from ..ia.probador import ModeloNoDisponible, SinModelo, obtener_modelo
 from ..schemas import ProbadorEstado
 from ..sesion import sesion_actual
+from .carrito import variante_existe
 
 router = APIRouter(prefix="/probador", tags=["probador IA"])
 
@@ -40,7 +41,7 @@ def probar(
         raise HTTPException(413, "La foto pesa más de 8 MB")
 
     fila = con.execute("SELECT * FROM perchero_items WHERE id = ? AND sesion = ?", (item_perchero_id, sesion)).fetchone()
-    if not fila:
+    if not fila or not variante_existe(fila["producto_id"], fila["color_id"]):
         raise HTTPException(404, "Esa prenda no está en tu perchero")
     cat = catalogo()
     prenda = cat.productos[fila["producto_id"]]

@@ -1,6 +1,6 @@
 """Catálogo: lee los 3 CSV del dataset una sola vez y los deja en memoria.
 
-El catálogo es de solo lectura (150 prendas), así que no hace falta base de datos
+El catálogo es de solo lectura (144 prendas), así que no hace falta base de datos
 para esto. Lo que cambia (carrito, perchero, pedidos) va a SQLite: ver db.py.
 """
 import csv

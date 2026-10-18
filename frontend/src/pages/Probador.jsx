@@ -10,11 +10,11 @@ import { useCarga } from "../useCarga";
 // Tutorial para sacarse la foto, con la chica de la selfie como ejemplo.
 const TIPS = [
   ["Cuerpo entero", "Que se te vea de la cabeza a los pies."],
-  ["De frente", "Parada derecha, con los brazos un poco separados del cuerpo."],
-  ["Buena luz", "Mejor de día, con la luz de frente y sin sombras fuertes."],
-  ["Fondo liso", "Una pared o un espejo limpio, sin otras personas atrás."],
-  ["Ropa simple", "Algo ajustado y liso, así la IA entiende bien tu silueta."],
-  ["¿Selfie en el espejo?", "Vale, pero que el celu no te tape la cara ni el cuerpo."],
+  ["De frente y natural", "Parada con los brazos un poco separados del cuerpo."],
+  ["Buena luz", "De día si podés, con la luz de frente y no a contraluz."],
+  ["Fondo despejado", "Pared lisa o lugar ordenado, sin otras personas ni objetos adelante."],
+  ["Ropa que marque tu forma", "Evitá prendas holgadas, abrigos o carteras."],
+  ["¿Selfie en el espejo?", "¡Sí! Solo procurá que el celular no te tape la cara ni el cuerpo."],
 ];
 
 function TutorialFoto() {
@@ -26,7 +26,7 @@ function TutorialFoto() {
         <h2 id="tutorial-titulo" className="tutorial__titulo">Cómo sacarte la foto</h2>
         <ol className="tutorial__tips">
           {TIPS.map(([titulo, texto]) => (
-            <li key={titulo}><strong>{titulo}.</strong> {texto}</li>
+            <li key={titulo}><strong>{/[?!]$/.test(titulo) ? titulo : `${titulo}.`}</strong> {texto}</li>
           ))}
         </ol>
       </div>
@@ -46,7 +46,7 @@ function Terminos({ cerrar, aceptar }) {
         </div>
         <div className="terminos">
           <h3>1. Para qué usamos tu foto</h3>
-          <p>Solo para generar la imagen de cómo te queda la prenda que elegiste. No la usamos para nada más.</p>
+          <p>Solo para generar la imagen de cómo te queda la prenda que elegiste.</p>
           <h3>2. Qué no hacemos con tu foto</h3>
           <ul>
             <li>No la guardamos: se procesa en el momento y se descarta.</li>
@@ -55,14 +55,12 @@ function Terminos({ cerrar, aceptar }) {
           </ul>
           <h3>3. Qué foto subir</h3>
           <ul>
-            <li>Una foto tuya, de cuerpo entero, con ropa puesta.</li>
+            <li>Una foto tuya, de cuerpo entero.</li>
             <li>No subas fotos de otras personas sin su permiso.</li>
             <li>Si sos menor de 18 años, pedile permiso a un adulto responsable antes de usar el probador.</li>
           </ul>
           <h3>4. El resultado</h3>
           <p>La imagen la genera una IA: es una aproximación y puede no ser exacta en talle, color o calce. Para elegir el talle usá la guía de talles de cada prenda.</p>
-          <h3>5. Proyecto académico</h3>
-          <p>Ten Points es un proyecto de estudio, no una tienda real.</p>
         </div>
         <div className="hoja__pie hoja__pie--uno">
           <button className="boton" onClick={aceptar}>Acepto los términos</button>
@@ -82,6 +80,9 @@ export default function Probador() {
   const [acepta, setAcepta] = useState(false);
   const [verTerminos, setVerTerminos] = useState(false);
   const input = useRef(null);
+
+  // Si cambia la prenda elegida, el resultado anterior ya no corresponde
+  useEffect(() => setResultado(null), [elegida]);
 
   // Si se descuelga la prenda elegida, elegir otra
   useEffect(() => {
@@ -117,13 +118,6 @@ export default function Probador() {
   return (
     <main className="pantalla">
       <Encabezado titulo="Probador" volver={false} />
-
-      {estado.datos && !disponible && (
-        <div className="cartel-ia">
-          <Icono nombre="chispas" />
-          <span><strong>Probador con IA: muy pronto.</strong> Ya podés armar tu perchero; cuando la IA esté lista, te lo probás con una foto.</span>
-        </div>
-      )}
 
       <section className="seccion">
         <div className="seccion__cabeza">
@@ -193,7 +187,7 @@ export default function Probador() {
               ) : null}
             </div>
           </div>
-          <input ref={input} type="file" accept="image/jpeg,image/png,image/webp" capture="user" hidden onChange={elegirFoto} />
+          <input ref={input} type="file" accept="image/jpeg,image/png,image/webp" hidden onChange={elegirFoto} />
           <div className="advertencia" role="note">
             <Icono nombre="camara" />
             <span>
@@ -215,7 +209,7 @@ export default function Probador() {
           <button className="boton boton--grande boton--ancho boton--ia" onClick={probar}
             disabled={!disponible || !acepta || !foto || !prenda || probando}>
             <Icono nombre="chispas" tam={20} />
-            {!disponible ? "Probar con IA (próximamente)" : probando ? "Probando…" : !foto ? "Subí tu foto para probar"
+            {!disponible ? "Probar con IA" : probando ? "Probando…" : !foto ? "Subí tu foto para probar"
               : !acepta ? "Aceptá los términos para probar" : "Probar con IA"}
           </button>
         </section>

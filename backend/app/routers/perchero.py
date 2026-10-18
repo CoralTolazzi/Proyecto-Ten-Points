@@ -7,7 +7,7 @@ from ..datos import catalogo
 from ..db import conexion
 from ..schemas import ColorOut, ItemPercheroIn, ItemPercheroOut, TalleOut
 from ..sesion import sesion_actual
-from .carrito import validar_variante
+from .carrito import validar_variante, variante_existe
 
 router = APIRouter(prefix="/perchero", tags=["perchero"])
 
@@ -19,6 +19,11 @@ def listar_perchero(con: sqlite3.Connection, sesion: str) -> list[ItemPercheroOu
     filas = con.execute("SELECT * FROM perchero_items WHERE sesion = ? ORDER BY id", (sesion,)).fetchall()
     salida = []
     for f in filas:
+        if not variante_existe(f["producto_id"], f["color_id"]):
+            # La prenda (o ese color) se sacó de la tienda: se descuelga sola
+            con.execute("DELETE FROM perchero_items WHERE id = ?", (f["id"],))
+            con.commit()
+            continue
         p = cat.productos[f["producto_id"]]
         salida.append(ItemPercheroOut(
             id=f["id"], producto_id=p.id, nombre=p.nombre, categoria=p.categoria, precio=p.precio,

@@ -21,13 +21,14 @@ def variante(api, producto_id=1):
 
 # ---------- catálogo ----------
 def test_salud(api):
-    assert api.get("/api/salud").json() == {"ok": True, "productos": 150}
+    assert api.get("/api/salud").json() == {"ok": True, "productos": 144}
 
 
-def test_categorias_tienen_25(api):
+def test_categorias(api):
     cats = api.get("/api/categorias").json()
     assert [c["categoria"] for c in cats] == ["remeras", "vestidos", "pantalones", "polleras", "camperas", "buzos"]
-    assert all(c["cantidad"] == 25 for c in cats)
+    assert {c["categoria"]: c["cantidad"] for c in cats} == {
+        "remeras": 24, "vestidos": 25, "pantalones": 23, "polleras": 23, "camperas": 24, "buzos": 25}
 
 
 def test_filtrar_por_categoria_y_paginar(api):
@@ -147,11 +148,12 @@ def test_perchero_no_duplica(api):
 
 
 def test_perchero_tope(api):
-    for pid in range(1, 13):
+    ids = [i["id"] for i in api.get("/api/productos", params={"orden": "nombre", "por_pagina": 13}).json()["items"]]
+    for pid in ids[:12]:
         _, color, _ = variante(api, pid)
         assert api.post("/api/perchero", json={"producto_id": pid, "color_id": color}, headers=S1).status_code == 201
-    _, color, _ = variante(api, 13)
-    assert api.post("/api/perchero", json={"producto_id": 13, "color_id": color}, headers=S1).status_code == 409
+    _, color, _ = variante(api, ids[12])
+    assert api.post("/api/perchero", json={"producto_id": ids[12], "color_id": color}, headers=S1).status_code == 409
 
 
 # ---------- compra ----------
@@ -281,3 +283,28 @@ def test_probador_replicate_clase(monkeypatch):
     monkeypatch.setenv("REPLICATE_API_TOKEN", "token_prueba_123")
     m = obtener_modelo()
     assert m.nombre == "IDM-VTON (Replicate)"
+
+
+# ---------- prendas que se sacaron de la tienda ----------
+def test_prenda_sacada_no_rompe_carrito_ni_perchero(api):
+    """Si alguien tenía en el carrito o el perchero una prenda que después se sacó del CSV
+    (ej. la Remera Cuddles, id 10), la app no se rompe: esa prenda desaparece sola."""
+    import os, sqlite3
+    _, color, talle = variante(api)
+    api.post("/api/carrito/items", json={"producto_id": 1, "color_id": color, "talle_id": talle}, headers=S1)
+    api.post("/api/perchero", json={"producto_id": 1, "color_id": color}, headers=S1)
+    with sqlite3.connect(os.environ["TEN_POINTS_DB"]) as con:
+        con.execute("INSERT INTO carrito_items (sesion, producto_id, color_id, talle_id, cantidad) VALUES (?, 10, 20, 40, 1)", (S1["X-Sesion"],))
+        con.execute("INSERT INTO perchero_items (sesion, producto_id, color_id) VALUES (?, 10, 20)", (S1["X-Sesion"],))
+        # color que se sacó de una prenda que sigue (Remera Club azul claro)
+        con.execute("INSERT INTO perchero_items (sesion, producto_id, color_id) VALUES (?, 17, 52)", (S1["X-Sesion"],))
+    c = api.get("/api/carrito", headers=S1)
+    assert c.status_code == 200 and [i["producto_id"] for i in c.json()["items"]] == [1]
+    per = api.get("/api/perchero", headers=S1)
+    assert per.status_code == 200 and [i["producto_id"] for i in per.json()] == [1]
+    assert api.get("/api/productos/10").status_code == 404
+
+
+def test_colores_que_quedaron(api):
+    assert [c["nombre"] for c in api.get("/api/productos/17").json()["colores"]] == ["Marrón"]
+    assert [c["nombre"] for c in api.get("/api/productos/123").json()["colores"]] == ["Negro"]
