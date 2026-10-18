@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { api, precio } from "../api";
 import { Cargando, Encabezado, ErrorCarga, FotoPrenda } from "../components/Comunes";
+import { TarjetaChica } from "../components/Chica";
 import Icono from "../components/Icono";
 import { useTienda } from "../tienda";
 import { useCarga } from "../useCarga";
@@ -157,6 +158,11 @@ export default function Compra() {
   return (
     <main className="pantalla pantalla--con-accion">
       <Encabezado titulo="Finalizar compra" />
+
+      <TarjetaChica cual="compra" color="celeste">
+        <h2 className="tarjeta-chica__titulo">¡Ya casi es tuyo!</h2>
+        <p>Completá tus datos, elegí cómo te llega y pagá con tarjeta.</p>
+      </TarjetaChica>
 
       <form onSubmit={pagar} noValidate>
         <section className="bloque">

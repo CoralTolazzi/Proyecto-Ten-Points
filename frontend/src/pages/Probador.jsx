@@ -2,9 +2,37 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { api, precio } from "../api";
 import { Encabezado, FotoPrenda, Vacio } from "../components/Comunes";
+import Chica from "../components/Chica";
 import Icono from "../components/Icono";
 import { useTienda } from "../tienda";
 import { useCarga } from "../useCarga";
+
+// Tutorial para sacarse la foto, con la chica de la selfie como ejemplo.
+const TIPS = [
+  ["Cuerpo entero", "Que se te vea de la cabeza a los pies."],
+  ["De frente", "Parada derecha, con los brazos un poco separados del cuerpo."],
+  ["Buena luz", "Mejor de día, con la luz de frente y sin sombras fuertes."],
+  ["Fondo liso", "Una pared o un espejo limpio, sin otras personas atrás."],
+  ["Ropa simple", "Algo ajustado y liso, así la IA entiende bien tu silueta."],
+  ["¿Selfie en el espejo?", "Vale, pero que el celu no te tape la cara ni el cuerpo."],
+];
+
+function TutorialFoto() {
+  return (
+    <section className="tutorial" aria-labelledby="tutorial-titulo">
+      <Chica cual="probador" className="tutorial__chica" alt="Ejemplo: chica sacándose una selfie de cuerpo entero en el espejo" />
+      <div className="tutorial__texto">
+        <span className="sticker">TUTORIAL</span>
+        <h2 id="tutorial-titulo" className="tutorial__titulo">Cómo sacarte la foto</h2>
+        <ol className="tutorial__tips">
+          {TIPS.map(([titulo, texto]) => (
+            <li key={titulo}><strong>{titulo}.</strong> {texto}</li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
 
 // Texto de los términos del probador. Si conectan un modelo o servicio externo que
 // guarde las fotos o las use para entrenar, hay que actualizar este texto.
@@ -132,6 +160,8 @@ export default function Probador() {
           </div>
         )}
       </section>
+
+      <TutorialFoto />
 
       {perchero.length > 0 && (
         <section className="seccion">

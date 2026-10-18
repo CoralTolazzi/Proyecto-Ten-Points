@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { api, NOMBRE_CATEGORIA, precio } from "../api";
 import { Cargando, ErrorCarga, Tarjeta, Vacio } from "../components/Comunes";
+import { TarjetaChica } from "../components/Chica";
 import Icono from "../components/Icono";
 import { useCarga } from "../useCarga";
 
@@ -118,7 +119,10 @@ export default function Buscar() {
 
   return (
     <main className="pantalla">
-      <h1 className="titulo-pantalla">Buscar</h1>
+      <TarjetaChica cual="buscar" color="lila">
+        <h1 className="titulo-pantalla">Buscar</h1>
+        <p>Remeras, vestidos, jeans… encontrá tu próximo look.</p>
+      </TarjetaChica>
       <div className="buscador">
         <Icono nombre="buscar" tam={20} />
         <input type="search" placeholder="Remeras, jeans, rosa…" value={texto}

@@ -108,7 +108,7 @@ export function Cargando({ texto = "Cargando…" }) {
 export function Vacio({ icono, titulo, texto, accion }) {
   return (
     <div className="vacio">
-      <div className="vacio__icono"><Icono nombre={icono} tam={40} grosor={1.8} /></div>
+      {icono && <div className="vacio__icono"><Icono nombre={icono} tam={40} grosor={1.8} /></div>}
       <h2>{titulo}</h2>
       {texto && <p>{texto}</p>}
       {accion}

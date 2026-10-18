@@ -475,3 +475,43 @@ form { display: flex; flex-direction: column; gap: 16px; }
 .terminos ul { margin: 0; padding-left: 20px; }
 .hoja__pie--uno { grid-template-columns: 1fr; }
 .seccion > .boton, form > .boton { flex: none; }
+
+/* ---------- chicas (una por pantalla) ---------- */
+.chica { display: block; pointer-events: none; user-select: none; }
+
+/* Inicio: la chica parada en el banner */
+.banner { min-height: 250px; }
+.banner__texto { max-width: 60%; }
+.banner__chica { position: absolute; right: 2px; bottom: -150px; height: 390px; width: auto; z-index: 0; filter: drop-shadow(3px 3px 0 var(--ink)); }
+
+/* Tarjeta con la chica asomándose a la derecha (Buscar, Carrito, Compra) */
+.tarjeta-chica {
+  position: relative; overflow: hidden;
+  min-height: 132px; padding: 16px 40% 16px 16px;
+  border: var(--borde); border-radius: var(--radio); box-shadow: var(--sombra);
+  display: flex; flex-direction: column; justify-content: center; gap: 8px;
+}
+.tarjeta-chica--rosa { background: var(--pink-soft); }
+.tarjeta-chica--lila { background: var(--lilac-soft); }
+.tarjeta-chica--celeste { background: #dff1ff; }
+.tarjeta-chica__texto { display: flex; flex-direction: column; gap: 8px; position: relative; z-index: 1; font-size: 14px; line-height: 1.4; }
+.tarjeta-chica__titulo { font-family: var(--titulo); font-weight: 400; font-size: 24px; line-height: 1.05; }
+.tarjeta-chica .titulo-pantalla { font-size: 32px; }
+.tarjeta-chica__img { position: absolute; right: 6px; top: 10px; width: 38%; height: auto; }
+.envio-gratis--en-tarjeta { padding: 0; border: 0; background: none; display: flex; align-items: center; gap: 10px; font-size: 14px; }
+.envio-gratis--en-tarjeta svg { flex: none; }
+
+/* Carrito vacío */
+.chica--vacio { height: 260px; width: auto; margin: 8px auto -24px; }
+
+/* Probador: tutorial de la foto */
+.tutorial {
+  display: grid; grid-template-columns: 38% 1fr; gap: 12px; align-items: center;
+  padding: 14px; background: var(--white);
+  border: var(--borde); border-radius: var(--radio); box-shadow: var(--sombra);
+}
+.tutorial__chica { width: 100%; height: auto; max-height: 380px; object-fit: contain; }
+.tutorial__texto { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.tutorial__titulo { font-family: var(--titulo); font-weight: 400; font-size: 22px; line-height: 1.05; }
+.tutorial__tips { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 13px; line-height: 1.35; }
+.tutorial__tips li::marker { color: var(--pink); font-weight: 700; }

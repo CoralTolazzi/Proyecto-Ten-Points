@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { api, NOMBRE_CATEGORIA } from "../api";
 import { Cargando, ErrorCarga, FotoPrenda, Tarjeta } from "../components/Comunes";
+import Chica from "../components/Chica";
 import Icono from "../components/Icono";
 import { useCarga } from "../useCarga";
 
@@ -60,6 +61,7 @@ export default function Inicio() {
         </div>
         <span className="banner__deco banner__deco--1" />
         <span className="banner__deco banner__deco--2" />
+        <Chica cual="inicio" className="banner__chica" />
       </section>
 
       <section className="seccion">

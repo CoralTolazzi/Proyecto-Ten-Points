@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { precio } from "../api";
 import { Cargando, Encabezado, ErrorCarga, FotoPrenda, Vacio } from "../components/Comunes";
+import Chica, { TarjetaChica } from "../components/Chica";
 import Icono from "../components/Icono";
 import { useTienda } from "../tienda";
 
@@ -28,7 +29,8 @@ export default function Carrito() {
     return (
       <main className="pantalla">
         <Encabezado titulo="Mi carrito" volver={false} />
-        <Vacio icono="bolsa" titulo="Tu carrito está vacío" texto="Cuando algo te guste, agregalo acá."
+        <Chica cual="carrito" className="chica--vacio" />
+        <Vacio icono={null} titulo="Tu carrito está vacío" texto="Cuando algo te guste, agregalo acá."
           accion={<Link to="/" className="boton">Ver prendas</Link>} />
         {perchero.length > 0 && (
           <Link to="/probador" className="aviso-perchero">
@@ -47,15 +49,15 @@ export default function Carrito() {
       <Encabezado titulo="Mi carrito" volver={false}
         derecha={<Link to="/probador" className="boton-icono" aria-label="Ir al perchero"><Icono nombre="perchero" /></Link>} />
 
-      <div className="envio-gratis">
-        <Icono nombre="camion" />
-        <div>
+      <TarjetaChica cual="carrito" color="rosa">
+        <div className="envio-gratis envio-gratis--en-tarjeta">
+          <Icono nombre="camion" />
           {carrito.falta_para_envio_gratis > 0
             ? <span>Te faltan <strong>{precio(carrito.falta_para_envio_gratis)}</strong> para el envío gratis</span>
             : <strong>¡Tenés envío gratis!</strong>}
-          <div className="barra"><span style={{ width: `${progreso}%` }} /></div>
         </div>
-      </div>
+        <div className="barra"><span style={{ width: `${progreso}%` }} /></div>
+      </TarjetaChica>
 
       <ul className="items">
         {carrito.items.map((i) => (
