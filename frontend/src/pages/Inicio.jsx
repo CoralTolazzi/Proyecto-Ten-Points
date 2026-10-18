@@ -40,7 +40,7 @@ export default function Inicio() {
       <header className="inicio__cabeza">
         <div>
           <span className="logo">Ten Points</span>
-          <span className="logo__by">by Lucas y Coral</span>
+          <span className="logo__by">by Lucas & Coral</span>
         </div>
         <Link to="/carrito" className="boton-icono" aria-label="Ir al carrito"><Icono nombre="bolsa" /></Link>
       </header>
